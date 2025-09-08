@@ -90,6 +90,19 @@
     });
   }catch{}
 
+  // Avatar fallback se a imagem não carregar
+  try{
+    const photo = document.querySelector('.avatar-photo');
+    const fallback = document.querySelector('.avatar-fallback');
+    if (photo && fallback){
+      function hideFallback(){ fallback.style.display = 'none'; }
+      function showFallback(){ fallback.style.display = 'grid'; }
+      if (photo.complete && photo.naturalWidth > 0){ hideFallback(); }
+      photo.addEventListener('load', hideFallback);
+      photo.addEventListener('error', showFallback);
+    }
+  }catch{}
+
   // Command Palette (Ctrl/Cmd + K)
   try{
     const dialog = document.getElementById('cmdk');
@@ -122,6 +135,32 @@
       closeCmdk();
       if (anchor){ document.querySelector(anchor)?.scrollIntoView({ behavior:'smooth', block:'start' }); }
       if (link){ window.open(link, '_blank', 'noopener'); }
+    });
+  }catch{}
+
+  // Ícones automáticos nas competências
+  try{
+    const svgIcons = {
+      'HTML5': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#E34F26" d="M3 2l1.64 18.56L12 22l7.36-1.44L21 2H3z"/><path fill="#fff" d="M17.28 7.37l-.17 1.9-4.45 1.92.01-.02H8.5l.12 1.39h3.93l-.15 1.62L12 14.94l-3.37-.9-.21-2.33H6.98l.37 4.15L12 17.2l4.59-1.14.62-6.85H9.36l-.13-1.49h8.05z"/></svg>`,
+      'CSS3': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1572B6" d="M3 2l1.64 18.56L12 22l7.36-1.44L21 2H3z"/><path fill="#fff" d="M17.3 6.9l-.2 2.2-4.5 1.9H8.5l.1 1.4h4l-.2 1.9-2.4.7-3.4-.9-.2-2.3H7l.4 4.1L12 17.2l4.6-1.1.6-6.8H9.2l-.1-1.4h8.2z"/></svg>`,
+      'JavaScript (ES6+)': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F7DF1E"/><path d="M10.7 17.6c0 1.4-.8 2-2 2-.9 0-1.4-.5-1.8-1.1l1.1-.7c.2.3.4.6.8.6.4 0 .7-.2.7-.8v-4.2h1.2v4.2Zm2.1-.1c.3.6.7 1.1 1.5 1.1.6 0 1-.3 1-.7 0-.5-.4-.7-1.1-1l-.4-.2c-1.1-.5-1.8-1.1-1.8-2.4 0-1.2.9-2.1 2.3-2.1 1 0 1.7.3 2.2 1.3l-1.1.7c-.2-.5-.5-.7-1-.7s-.8.3-.8.7c0 .5.3.7 1.1 1l.4.2c1.3.6 2 1.2 2 2.5 0 1.4-1.1 2.2-2.6 2.2-1.4 0-2.3-.7-2.8-1.6l1.1-.7Z" fill="#000"/></svg>`,
+      'TypeScript': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#3178C6"/><path fill="#fff" d="M13.2 10.3h-2.1V9h6.1v1.3h-2.1v6.2h-1.9v-6.2Z"/><path fill="#fff" d="M7.1 11h3.6v1.3H9.6v4.2H7.7v-4.2H7.1V11Z"/></svg>`,
+      'React.js': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2" fill="#61DAFB"/><g fill="none" stroke="#61DAFB" stroke-width="1.5"><ellipse cx="12" cy="12" rx="10" ry="4.5"/><ellipse cx="12" cy="12" rx="4.5" ry="10" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="4.5" ry="10" transform="rotate(120 12 12)"/></g></svg>`,
+      'Next.js': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#000"/><path d="M6.5 7.5h2V16h-2V7.5Zm5.5 0h2V13l2.8 3h-2.5l-2.3-2.8V7.5Z" fill="#fff"/></svg>`,
+      'Tailwind CSS': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2.7 0-4.4 1.3-5 3.9.8-1.3 1.8-1.8 3.1-1.5.7.2 1.2.7 1.8 1.2C12.6 10.5 13.5 11 15 11c2.7 0 4.4-1.3 5-3.9-.8 1.3-1.8 1.8-3.1 1.5-.7-.2-1.2-.7-1.8-1.2C14.4 6.5 13.5 6 12 6Zm-5 6c-2.7 0-4.4 1.3-5 3.9.8-1.3 1.8-1.8 3.1-1.5.7.2 1.2.7 1.8 1.2.7.9 1.6 1.4 3.1 1.4 2.7 0 4.4-1.3 5-3.9-.8 1.3-1.8 1.8-3.1 1.5-.7-.2-1.2-.7-1.8-1.2-.8-.9-1.7-1.4-3.1-1.4Z" fill="#38BDF8"/></svg>`,
+      'Node.js': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5Z" fill="#83CD29"/><path d="M12 8c2.9 0 4.7 1.5 4.7 4.1s-1.8 4.1-4.7 4.1c-2 0-3.6-.7-4.4-2l1.8-1c.4.8 1.2 1.3 2.6 1.3 1.5 0 2.4-.7 2.4-2.2S13.5 10 12 10c-1.1 0-1.7.3-2.2.8l-.2.2-1.6-.9c.8-1.2 2.2-2.1 4-2.1Z" fill="#fff"/></svg>`,
+      'Python': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#3776AB"/><path d="M7 8c0-1.7 1.4-3 3-3h4c1.7 0 3 1.3 3 3v2H10c-1.7 0-3 1.3-3 3v2H7c-1.7 0-3-1.3-3-3V11c0-1.7 1.3-3 3-3Z" fill="#FFE873"/></svg>`,
+      'SQLite': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0F80CC"/><path d="M7 7h10v10H7z" fill="#fff"/><path d="M9 9h6v6H9z" fill="#0F80CC"/></svg>`,
+      'MySQL': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#00758F"/><path d="M6 16c1.5-3.5 5-6 9-6 1.3 0 2 .7 3 1.5-.5 2.2-2.5 4.5-5 5.5-2.5 1-5.5.8-7-.9Z" fill="#fff"/></svg>`,
+      'Supabase': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h12l-6 8h6L8 20l2.8-6H6L12 4Z" fill="#3ECF8E"/></svg>`
+    };
+    document.querySelectorAll('.chips-list li').forEach(li=>{
+      const tech = li.textContent.trim();
+      const icon = svgIcons[tech];
+      if (icon && !li.dataset.iconApplied){
+        li.dataset.iconApplied = 'true';
+        li.innerHTML = icon + li.innerHTML;
+      }
     });
   }catch{}
 })();
