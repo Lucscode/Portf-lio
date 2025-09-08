@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lucas Alexandre de Moraes Pereira — Portfólio</title>
+    <meta name="description" content="Portfólio de Lucas Pereira, Desenvolvedor Front-End Júnior. Projetos em React, Next.js e automações com foco em interfaces escaláveis e intuitivas." />
+    <meta name="author" content="Lucas Alexandre de Moraes Pereira" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Lucas Pereira — Desenvolvedor Front-End" />
+    <meta property="og:description" content="Portfólio com projetos em React, Next.js, Tailwind e automações."
+    />
+    <meta property="og:url" content="https://seu-dominio-ou-github-pages" />
+    <meta property="og:image" content="" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lucas Pereira — Desenvolvedor Front-End" />
+    <meta name="twitter:description" content="Portfólio com projetos em React, Next.js, Tailwind e automações." />
+    <meta name="twitter:image" content="" />
+
+    <link id="favicon" rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%234f46e5'/%3E%3Ctext x='50%' y='54%' text-anchor='middle' font-family='Inter, Arial, sans-serif' font-size='28' font-weight='700' fill='%23ffffff'%3ELP%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lucas Alexandre de Moraes Pereira",
+        "jobTitle": "Desenvolvedor Front-End Júnior",
+        "email": "mailto:lucasalexandredmpereira@gmail.com",
+        "telephone": "+55-19-98150-1421",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Indaiatuba",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        },
+        "url": "https://seu-dominio-ou-github-pages",
+        "sameAs": [
+          "https://www.linkedin.com/in/lucas-pereira-7aaa622b2",
+          "https://github.com/Lucscode"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a class="brand" href="#" aria-label="Página inicial">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2" y="2" width="60" height="60" rx="12" class="logo-bg"/>
+              <path d="M18 18v28h16" class="logo-stroke"/>
+              <path d="M34 18h12c0 0-6 8-6 14 0 6 6 14 6 14H34" class="logo-stroke"/>
+            </svg>
+          </span>
+          <span class="brand-text">Lucas Pereira</span>
+        </a>
+        <nav class="site-nav" aria-label="Navegação primária">
+          <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#competencias">Competências</a></li>
+            <li><a href="#experiencia">Experiência</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#formacao">Formação</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+        <div class="social-icons" aria-label="Redes e contato">
+          <a href="mailto:lucasalexandredmpereira@gmail.com" class="icon-btn email" title="E-mail" aria-label="Enviar e-mail">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5"/><path d="m3 7 9 7 9-7" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a href="https://wa.me/5519981501421" target="_blank" rel="noopener" class="icon-btn whatsapp" title="WhatsApp" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.52 3.48A11.94 11.94 0 0 0 12.004 0C5.376 0 .002 5.373.002 12c0 2.111.55 4.172 1.593 5.992L0 24l6.17-1.57A11.92 11.92 0 0 0 12.004 24c6.628 0 12.002-5.373 12.002-12 0-3.206-1.25-6.218-3.486-8.52Z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 6.8c-.3.2-.8.7-.9 1.3-.2.6-.4 1.8 1.1 3.8 1.6 2.2 3.4 3.2 3.9 3.5.6.3 2 .6 2.7.3.7-.3 1.5-1.1 1.7-1.8.2-.7-.2-.8-.7-1-.6-.2-1.6-.8-1.8-.9-.2-.1-.4 0-.5.1-.2.3-.5.8-.6.9-.1.1-.2.2-.4.1-.2-.1-1.1-.4-2-1.3-.8-.7-1.3-1.6-1.4-1.8-.1-.2 0-.3.1-.4.1-.1.3-.4.4-.6.1-.2.1-.3 0-.5-.1-.2-.6-1.5-.8-1.9-.2-.4-.6-.4-.8-.3Z" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/lucas-pereira-7aaa622b2" target="_blank" rel="noopener" class="icon-btn linkedin" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5Z"/><path d="M3.5 9h3v11h-3z"/><path d="M10 9h2.8v1.6h.04c.4-.8 1.4-1.6 2.88-1.6C18.6 9 20 10.3 20 13.1V20h-3v-6c0-1.5-.5-2.4-1.8-2.4-1 0-1.6.7-1.9 1.4-.1.2-.1.6-.1.9V20h-3V9Z"/></svg>
+          </a>
+          <a href="https://github.com/Lucscode" target="_blank" rel="noopener" class="icon-btn github" title="GitHub" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.86 3.15 8.98 7.52 10.43.55.1.75-.24.75-.53 0-.26-.01-1.14-.02-2.06-3.06.67-3.71-1.3-3.71-1.3-.5-1.25-1.22-1.58-1.22-1.58-.99-.68.07-.66.07-.66 1.1.08 1.67 1.13 1.67 1.13.98 1.67 2.58 1.19 3.21.9.1-.71.38-1.2.69-1.48-2.44-.28-5.01-1.22-5.01-5.42 0-1.2.43-2.18 1.13-2.95-.11-.28-.49-1.42.11-2.96 0 0 .93-.3 3.05 1.13.88-.25 1.82-.37 2.76-.37.94 0 1.88.12 2.76.37 2.12-1.43 3.05-1.13 3.05-1.13.6 1.54.22 2.68.11 2.96.7.77 1.13 1.75 1.13 2.95 0 4.21-2.57 5.14-5.02 5.41.39.34.73 1.01.73 2.04 0 1.47-.01 2.65-.01 3.01 0 .29.2.64.76.53A10.53 10.53 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5Z"/></svg>
+          </a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
+      </div>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="titulo-principal" data-reveal>
+        <div class="container grid-hero">
+          <div>
+            <h1 id="titulo-principal">Desenvolvedor Front-End Júnior</h1>
+            <p class="subtitle">
+              Crio interfaces escaláveis e intuitivas usando HTML, CSS, JavaScript (ES6+), React e Next.js. Formado em ADS e cursando pós-graduação em Engenharia de Software (USP/Esalq).
+            </p>
+            <div class="cta-group">
+              <a class="btn primary" href="#projetos">Ver projetos</a>
+              <a class="btn outline" href="#contato">Entrar em contato</a>
+              <a class="btn" style="border-color:#25D366;color:#25D366" href="https://wa.me/5519981501421" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:18px;height:18px"><path d="M20.52 3.48A11.94 11.94 0 0 0 12.004 0C5.376 0 .002 5.373.002 12c0 2.111.55 4.172 1.593 5.992L0 24l6.17-1.57A11.92 11.92 0 0 0 12.004 24c6.628 0 12.002-5.373 12.002-12 0-3.206-1.25-6.218-3.486-8.52Z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 6.8c-.3.2-.8.7-.9 1.3-.2.6-.4 1.8 1.1 3.8 1.6 2.2 3.4 3.2 3.9 3.5.6.3 2 .6 2.7.3.7-.3 1.5-1.1 1.7-1.8.2-.7-.2-.8-.7-1-.6-.2-1.6-.8-1.8-.9-.2-.1-.4 0-.5.1-.2.3-.5.8-.6.9-.1.1-.2.2-.4.1-.2-.1-1.1-.4-2-1.3-.8-.7-1.3-1.6-1.4-1.8-.1-.2 0-.3.1-.4.1-.1.3-.4.4-.6.1-.2.1-.3 0-.5-.1-.2-.6-1.5-.8-1.9-.2-.4-.6-.4-.8-.3Z" fill="currentColor"/></svg>
+                <span>Falar no WhatsApp</span>
+              </a>
+            </div>
+            <ul class="contact-list" aria-label="Informações de contato">
+              <li>
+                <span class="with-icon" aria-label="Localização: Indaiatuba, SP">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    <circle cx="12" cy="10" r="2.5" fill="currentColor"/>
+                  </svg>
+                  <span>Indaiatuba, SP</span>
+                </span>
+              </li>
+              <li>
+                <a class="with-icon" href="https://wa.me/5519981501421" target="_blank" rel="noopener" aria-label="WhatsApp">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M20.52 3.48A11.94 11.94 0 0 0 12.004 0C5.376 0 .002 5.373.002 12c0 2.111.55 4.172 1.593 5.992L0 24l6.17-1.57A11.92 11.92 0 0 0 12.004 24c6.628 0 12.002-5.373 12.002-12 0-3.206-1.25-6.218-3.486-8.52Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    <path d="M8.5 6.8c-.3.2-.8.7-.9 1.3-.2.6-.4 1.8 1.1 3.8 1.6 2.2 3.4 3.2 3.9 3.5.6.3 2 .6 2.7.3.7-.3 1.5-1.1 1.7-1.8.2-.7-.2-.8-.7-1-.6-.2-1.6-.8-1.8-.9-.2-.1-.4 0-.5.1-.2.3-.5.8-.6.9-.1.1-.2.2-.4.1-.2-.1-1.1-.4-2-1.3-.8-.7-1.3-1.6-1.4-1.8-.1-.2 0-.3.1-.4.1-.1.3-.4.4-.6.1-.2.1-.3 0-.5-.1-.2-.6-1.5-.8-1.9-.2-.4-.6-.4-.8-.3Z" fill="currentColor"/>
+                  </svg>
+                  <span>(19) 98150-1421</span>
+                </a>
+              </li>
+              <li>
+                <a class="with-icon" href="mailto:lucasalexandredmpereira@gmail.com" aria-label="E-mail">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    <path d="m3 7 9 7 9-7" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                  </svg>
+                  <span>lucasalexandredmpereira@gmail.com</span>
+                </a>
+              </li>
+              <li>
+                <a class="with-icon" href="https://www.linkedin.com/in/lucas-pereira-7aaa622b2" target="_blank" rel="noopener" aria-label="LinkedIn">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5Z"/>
+                    <path d="M3.5 9h3v11h-3z"/>
+                    <path d="M10 9h2.8v1.6h.04c.4-.8 1.4-1.6 2.88-1.6C18.6 9 20 10.3 20 13.1V20h-3v-6c0-1.5-.5-2.4-1.8-2.4-1 0-1.6.7-1.9 1.4-.1.2-.1.6-.1.9V20h-3V9Z"/>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a class="with-icon" href="https://github.com/Lucscode" target="_blank" rel="noopener" aria-label="GitHub">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.86 3.15 8.98 7.52 10.43.55.1.75-.24.75-.53 0-.26-.01-1.14-.02-2.06-3.06.67-3.71-1.3-3.71-1.3-.5-1.25-1.22-1.58-1.22-1.58-.99-.68.07-.66.07-.66 1.1.08 1.67 1.13 1.67 1.13.98 1.67 2.58 1.19 3.21.9.1-.71.38-1.2.69-1.48-2.44-.28-5.01-1.22-5.01-5.42 0-1.2.43-2.18 1.13-2.95-.11-.28-.49-1.42.11-2.96 0 0 .93-.3 3.05 1.13.88-.25 1.82-.37 2.76-.37.94 0 1.88.12 2.76.37 2.12-1.43 3.05-1.13 3.05-1.13.6 1.54.22 2.68.11 2.96.7.77 1.13 1.75 1.13 2.95 0 4.21-2.57 5.14-5.02 5.41.39.34.73 1.01.73 2.04 0 1.47-.01 2.65-.01 3.01 0 .29.2.64.76.53A10.53 10.53 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5Z"/>
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="avatar">
+            <div class="avatar-circle" aria-hidden="true">L</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sobre -->
+      <section id="sobre" class="section" aria-labelledby="sobre-titulo" data-reveal>
+        <div class="container">
+          <h2 id="sobre-titulo">Sobre</h2>
+          <p>
+            Desenvolvedor Front-End Júnior com sólida base em HTML, CSS, JavaScript (ES6+) e experiência com frameworks modernos como React e Next.js. Experiência prática em desenvolvimento de interfaces, automação de processos e integração com sistemas internos, atuando em projetos acadêmicos, pessoais e corporativos. Busco aplicar boas práticas de desenvolvimento e criar soluções escaláveis e intuitivas para usuários.
+          </p>
+        </div>
+      </section>
+
+      <!-- Competências -->
+      <section id="competencias" class="section" aria-labelledby="competencias-titulo" data-reveal>
+        <div class="container">
+          <h2 id="competencias-titulo">Competências Técnicas</h2>
+          <div class="chips">
+            <div class="chip-group">
+              <h3>Front-End</h3>
+              <ul class="chips-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>React.js</li>
+                <li>Next.js</li>
+                <li>Tailwind CSS</li>
+                <li>Angular (noções)</li>
+              </ul>
+            </div>
+            <div class="chip-group">
+              <h3>Back-End & Scripts</h3>
+              <ul class="chips-list">
+                <li>Node.js</li>
+                <li>Python</li>
+                <li>Google Apps Script</li>
+              </ul>
+            </div>
+            <div class="chip-group">
+              <h3>Banco de Dados</h3>
+              <ul class="chips-list">
+                <li>MySQL</li>
+                <li>SQLite</li>
+                <li>Supabase</li>
+                <li>Firebase</li>
+              </ul>
+            </div>
+            <div class="chip-group">
+              <h3>Ferramentas & Design</h3>
+              <ul class="chips-list">
+                <li>Git / GitHub</li>
+                <li>VS Code</li>
+                <li>Cursor (noções)</li>
+              </ul>
+            </div>
+            <div class="chip-group">
+              <h3>Soft Skills</h3>
+              <ul class="chips-list">
+                <li>Proatividade</li>
+                <li>Comunicação</li>
+                <li>Colaboração em equipe ágil</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experiência -->
+      <section id="experiencia" class="section" aria-labelledby="experiencia-titulo" data-reveal>
+        <div class="container">
+          <h2 id="experiencia-titulo">Experiência Profissional</h2>
+          <div class="timeline" role="list">
+            <article class="timeline-item" role="listitem">
+              <header class="item-header">
+                <h3>Q Passô Alimentos Ltda — Assistente de TI</h3>
+                <span class="item-meta">Indaiatuba – SP • jul/2024 – set/2025</span>
+              </header>
+              <ul>
+                <li>Apoio no desenvolvimento de e-commerce B2B, contribuindo para melhorias na usabilidade e eficiência.</li>
+                <li>Criação de planilhas automatizadas com Google Apps Script, reduzindo tarefas manuais.</li>
+                <li>Colaboração com equipe multidisciplinar para otimização de processos internos.</li>
+                <li>Acompanhamento e análise de painéis de BI para apoio à tomada de decisões.</li>
+              </ul>
+            </article>
+            <article class="timeline-item" role="listitem">
+              <header class="item-header">
+                <h3>Toyota / Ricoh — Operador de Máquinas</h3>
+                <span class="item-meta">Indaiatuba – SP • mai/2024 – jul/2024</span>
+              </header>
+              <ul>
+                <li>Suporte técnico em equipamentos de impressão e digitalização.</li>
+                <li>Atendimento interno e apoio administrativo.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projetos -->
+      <section id="projetos" class="section" aria-labelledby="projetos-titulo" data-reveal>
+        <div class="container">
+          <h2 id="projetos-titulo">Projetos de Desenvolvimento</h2>
+          <div class="projects-grid">
+            <article class="project-card">
+              <h3>Controlerf — App de controle financeiro</h3>
+              <p>Stack: React + TypeScript + Tailwind</p>
+              <div class="card-actions">
+                <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>SaaS Médico — Agendamento de consultas</h3>
+              <p>Stack: Next.js + TypeScript + Tailwind</p>
+              <div class="card-actions">
+                <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>ManagerApp — Gestão para lava-rápido</h3>
+              <p>Stack: React + Node.js + SQLite</p>
+              <div class="card-actions">
+                <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Formação -->
+      <section id="formacao" class="section" aria-labelledby="formacao-titulo" data-reveal>
+        <div class="container">
+          <h2 id="formacao-titulo">Formação Acadêmica</h2>
+          <ul class="edu-list">
+            <li>
+              <strong>Análise e Desenvolvimento de Sistemas</strong> — Anhanguera (2024)
+            </li>
+            <li>
+              <strong>Pós-graduação em Engenharia de Software (MBA)</strong> — USP/Esalq (em andamento)
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Idiomas -->
+      <section id="idiomas" class="section" aria-labelledby="idiomas-titulo" data-reveal>
+        <div class="container">
+          <h2 id="idiomas-titulo">Idiomas</h2>
+          <ul class="lang-list">
+            <li>Inglês: Básico (em desenvolvimento)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contato -->
+      <section id="contato" class="section" aria-labelledby="contato-titulo" data-reveal>
+        <div class="container">
+          <h2 id="contato-titulo"><span class="with-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5"/><path d="m3 7 9 7 9-7" stroke="currentColor" stroke-width="1.5"/></svg><span>Contato</span></span></h2>
+          <p>Aberto a oportunidades e parcerias. Vamos conversar!</p>
+          <div class="contact-actions">
+            <a class="btn primary" href="mailto:lucasalexandredmpereira@gmail.com">Enviar e-mail</a>
+            <a class="btn outline" href="https://www.linkedin.com/in/lucas-pereira-7aaa622b2" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Lucas Pereira. Feito com carinho em <span class="with-icon" aria-label="Localização: Indaiatuba, SP"><svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg><span>Indaiatuba, SP</span></span>.</p>
+        <a class="to-top" href="#" aria-label="Voltar ao topo">↑ Topo</a>
+      </div>
+    </footer>
+
+    <!-- Command Palette -->
+    <div id="cmdk" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="cmdk-backdrop" data-cmdk-close></div>
+      <div class="cmdk-panel" role="listbox" aria-label="Navegação rápida">
+        <input id="cmdk-input" type="text" placeholder="Digite para navegar… (Ex.: projetos)" aria-label="Pesquisar" />
+        <ul id="cmdk-list">
+          <li data-target="#sobre" role="option">Ir para Sobre</li>
+          <li data-target="#competencias" role="option">Ir para Competências</li>
+          <li data-target="#experiencia" role="option">Ir para Experiência</li>
+          <li data-target="#projetos" role="option">Ir para Projetos</li>
+          <li data-target="#formacao" role="option">Ir para Formação</li>
+          <li data-target="#contato" role="option">Ir para Contato</li>
+          <li data-link="https://github.com/Lucscode" role="option">Abrir GitHub</li>
+          <li data-link="https://www.linkedin.com/in/lucas-pereira-7aaa622b2" role="option">Abrir LinkedIn</li>
+        </ul>
+        <div class="cmdk-hint">Pressione Esc para fechar • Ctrl/Cmd + K para abrir</div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+
+
