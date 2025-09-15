@@ -303,12 +303,50 @@
     
     async function showProjectsPage(page){
       currentPage = page;
-      const startIndex = page * projectsPerPage;
-      const endIndex = startIndex + projectsPerPage;
-      const pageRepos = allRepos.slice(startIndex, endIndex);
-      
       const projectsContainer = document.querySelector('.projects-grid');
       if (!projectsContainer) return;
+      
+      // Se for a primeira página, mostrar projetos fixos
+      if (page === 0) {
+        // Restaurar projetos fixos do HTML
+        projectsContainer.innerHTML = `
+          <article class="project-card">
+            <h3>Controlerf — App de controle financeiro</h3>
+            <p>Stack: React + TypeScript + Tailwind</p>
+            <div class="card-actions">
+              <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>SaaS Médico — Agendamento de consultas</h3>
+            <p>Stack: Next.js + TypeScript + Tailwind</p>
+            <div class="card-actions">
+              <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>ManagerApp — Gestão para lava-rápido</h3>
+            <p>Stack: React + Node.js + SQLite</p>
+            <div class="card-actions">
+              <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>ArcusIT — Plataforma de atendimento</h3>
+            <p>Stack: HTML + CSS + JavaScript</p>
+            <div class="card-actions">
+              <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
+            </div>
+          </article>
+        `;
+        updatePaginationControls();
+        return;
+      }
+      
+      // Para páginas seguintes, mostrar projetos do GitHub
+      const startIndex = (page - 1) * projectsPerPage; // Ajustar índice para pular página 0
+      const endIndex = startIndex + projectsPerPage;
+      const pageRepos = allRepos.slice(startIndex, endIndex);
       
       // Limpar projetos estáticos
       projectsContainer.innerHTML = '';
@@ -485,7 +523,8 @@
     }
     
     function updatePaginationControls(){
-      const totalPages = Math.ceil(allRepos.length / projectsPerPage);
+      const githubPages = Math.ceil(allRepos.length / projectsPerPage);
+      const totalPages = githubPages + 1; // +1 para a página de projetos fixos
       const prevBtn = document.getElementById('prev-page');
       const nextBtn = document.getElementById('next-page');
       const pageInfo = document.getElementById('page-info');
