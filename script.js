@@ -163,7 +163,8 @@
       'ChatGPT': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#10A37F"/><path d="M8 9.5c0-1.4 1.1-2.5 2.5-2.5.6 0 1.1.2 1.5.5.4-.3.9-.5 1.5-.5C14.9 7 16 8.1 16 9.5c0 .3 0 .6-.1.8.7.4 1.1 1.1 1.1 1.9 0 1.2-1 2.1-2.1 2.1-.2 0-.5 0-.7-.1-.4.6-1.1 1-1.8 1-.8 0-1.5-.4-1.9-1-.2.1-.5.1-.7.1C8.1 14.3 7 13.2 7 11.8c0-.8.4-1.5 1.1-1.9-.1-.2-.1-.4-.1-.6Z" fill="#fff"/></svg>`,
       'Gemini': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285F4"/><stop offset="1" stop-color="#9C27B0"/></linearGradient></defs><circle cx="12" cy="12" r="10" fill="url(#g)"/></svg>`,
       'Lovable': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-6-3.8-8.2-6C1.7 11.9 2 8.6 4.3 7.2 6 6 8.1 6.6 9.3 8c.4.5.7 1 .7 1s.3-.5.7-1c1.2-1.4 3.3-2 5-0.8 2.3 1.4 2.6 4.7.5 6.8C18 16.2 12 20 12 20Z" fill="#FF5A79"/></svg>`,
-      'Cursor': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3l14 7-6 2-2 6-6-15Z" fill="#7C3AED"/></svg>`
+      'Cursor': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3l14 7-6 2-2 6-6-15Z" fill="#7C3AED"/></svg>`,
+      'Replit': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#667EEA"/><path d="M8 6h8v2H8V6zm0 3h8v2H8V9zm0 3h6v2H8v-2z" fill="#fff"/></svg>`
     };
     document.querySelectorAll('.chips-list li').forEach(li=>{
       const tech = li.textContent.trim();
