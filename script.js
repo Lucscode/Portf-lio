@@ -175,6 +175,374 @@
       }
     });
   }catch{}
+
+  // Buscar projetos do GitHub com paginação
+  try{
+    let allRepos = [];
+    let currentPage = 0;
+    const projectsPerPage = 4;
+    
+    // Função para verificar se vídeo existe
+    async function checkVideoExists(videoPath) {
+      try {
+        const response = await fetch(videoPath, { method: 'HEAD' });
+        return response.ok;
+      } catch {
+        return false;
+      }
+    }
+    
+    // Criar modal para vídeos
+    function createVideoModal() {
+      const modal = document.createElement('div');
+      modal.id = 'video-modal';
+      modal.className = 'video-modal';
+      modal.innerHTML = `
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-content">
+          <button class="modal-close" data-close-modal>×</button>
+          <video id="modal-video" controls autoplay>
+            <source src="" type="video/mp4">
+            Seu navegador não suporta vídeos.
+          </video>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      
+      // Event listeners para fechar modal
+      modal.addEventListener('click', (e) => {
+        if (e.target.dataset.closeModal) {
+          closeVideoModal();
+        }
+      });
+      
+      // Fechar com ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+          closeVideoModal();
+        }
+      });
+    }
+    
+    function openVideoModal(videoPath) {
+      const modal = document.getElementById('video-modal');
+      const video = document.getElementById('modal-video');
+      if (modal && video) {
+        video.src = videoPath;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    
+    function closeVideoModal() {
+      const modal = document.getElementById('video-modal');
+      const video = document.getElementById('modal-video');
+      if (modal && video) {
+        video.pause();
+        video.src = '';
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+    
+    async function loadGitHubProjects(){
+      const username = 'Lucscode';
+      const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=20`);
+      if (!response.ok) return;
+      
+      const repos = await response.json();
+      
+      // Filtrar repositórios relevantes
+      allRepos = repos.filter(repo => 
+        !repo.fork && 
+        repo.description && 
+        !repo.name.includes('Portf-lio') && // excluir este portfólio
+        repo.size > 0 // tem código
+      );
+      
+      if (allRepos.length === 0) return;
+      
+      // Criar modal de vídeo
+      createVideoModal();
+      
+      // Criar interface de paginação
+      createPaginationInterface();
+      showProjectsPage(0);
+    }
+    
+    function createPaginationInterface(){
+      const projectsSection = document.querySelector('#projetos .container');
+      if (!projectsSection) return;
+      
+      // Adicionar controles de paginação
+      const paginationHTML = `
+        <div class="pagination-controls">
+          <button id="prev-page" class="btn outline" disabled>← Anterior</button>
+          <span id="page-info" class="page-info">Página 1 de ${Math.ceil(allRepos.length / projectsPerPage)}</span>
+          <button id="next-page" class="btn outline">Próximo →</button>
+        </div>
+      `;
+      
+      // Inserir antes do grid
+      const grid = projectsSection.querySelector('.projects-grid');
+      if (grid) {
+        grid.insertAdjacentHTML('afterend', paginationHTML);
+        
+        // Event listeners
+        document.getElementById('prev-page')?.addEventListener('click', () => {
+          if (currentPage > 0) showProjectsPage(currentPage - 1);
+        });
+        
+        document.getElementById('next-page')?.addEventListener('click', () => {
+          if (currentPage < Math.ceil(allRepos.length / projectsPerPage) - 1) {
+            showProjectsPage(currentPage + 1);
+          }
+        });
+      }
+    }
+    
+    async function showProjectsPage(page){
+      currentPage = page;
+      const startIndex = page * projectsPerPage;
+      const endIndex = startIndex + projectsPerPage;
+      const pageRepos = allRepos.slice(startIndex, endIndex);
+      
+      const projectsContainer = document.querySelector('.projects-grid');
+      if (!projectsContainer) return;
+      
+      // Limpar projetos estáticos
+      projectsContainer.innerHTML = '';
+      
+      // Criar cards dinâmicos
+      for (const repo of pageRepos) {
+        const card = document.createElement('article');
+        card.className = 'project-card';
+        
+        // Buscar linguagens do repositório
+        const languagesResponse = await fetch(`https://api.github.com/repos/Lucscode/${repo.name}/languages`);
+        const languages = languagesResponse.ok ? await languagesResponse.json() : {};
+        const languageList = Object.keys(languages).slice(0, 3); // máximo 3 linguagens
+        
+        // Cores das linguagens
+        const languageColors = {
+          'JavaScript': '#F7DF1E',
+          'TypeScript': '#3178C6',
+          'Python': '#3776AB',
+          'React': '#61DAFB',
+          'HTML': '#E34F26',
+          'CSS': '#1572B6',
+          'Java': '#ED8B00',
+          'PHP': '#777BB4',
+          'Vue': '#4FC08D',
+          'Angular': '#DD0031',
+          'Node.js': '#339933',
+          'C#': '#239120',
+          'C++': '#00599C',
+          'Go': '#00ADD8',
+          'Rust': '#000000',
+          'Swift': '#FA7343',
+          'Kotlin': '#7F52FF',
+          'Dart': '#0175C2',
+          'Ruby': '#CC342D',
+          'Shell': '#89E051'
+        };
+        
+        const mainLanguage = languageList[0] || 'Mixed';
+        const color = languageColors[mainLanguage] || '#6B7280';
+        
+        // Verificar se há vídeo na pasta Projetos/ (buscar automaticamente)
+        const possiblePaths = [
+          `Projetos/${repo.name}/video.mp4`,
+          `Projetos/${repo.name}/demo.mp4`,
+          `Projetos/${repo.name}/preview.mp4`,
+          `Projetos/${repo.name}/Representativo web.mp4`,
+          `Projetos/${repo.name}/manager app.mp4`,
+          `Projetos/${repo.name}/Gravando 2025-09-15 103148.mp4`,
+          `videos/${repo.name}.mp4`
+        ];
+        
+        let videoPath = null;
+        let hasVideo = false;
+        
+        // Buscar automaticamente qualquer .mp4 na pasta do projeto
+        try {
+          const response = await fetch(`Projetos/${repo.name}/`);
+          if (response.ok) {
+            const html = await response.text();
+            const mp4Match = html.match(/href="([^"]*\.mp4)"/);
+            if (mp4Match) {
+              videoPath = `Projetos/${repo.name}/${mp4Match[1]}`;
+              hasVideo = true;
+            }
+          }
+        } catch (e) {
+          // Fallback para busca manual
+          for (const path of possiblePaths) {
+            if (await checkVideoExists(path)) {
+              videoPath = path;
+              hasVideo = true;
+              break;
+            }
+          }
+        }
+        
+        const hasImage = repo.name.toLowerCase().includes('image') || repo.description.toLowerCase().includes('screenshot');
+        
+        // Gerar preview baseado no tipo de conteúdo
+        let previewContent = '';
+        if (hasVideo) {
+          previewContent = `
+            <div class="mini-player">
+              <video class="mini-video" muted preload="metadata" loop>
+                <source src="${videoPath}" type="video/mp4">
+              </video>
+              <div class="mini-controls">
+                <button class="play-pause-btn" data-video="${videoPath}">▶️</button>
+                <div class="video-progress">
+                  <div class="progress-bar"></div>
+                </div>
+                <span class="video-duration">0:00</span>
+              </div>
+            </div>
+          `;
+        } else {
+          // Fallback: mostrar botão para testar vídeo
+          previewContent = `
+            <div class="video-fallback">
+              <div class="fallback-content">
+                <div class="video-icon">🎥</div>
+                <div class="fallback-text">Vídeo não encontrado</div>
+                <button class="test-video-btn" data-repo="${repo.name}">Testar vídeo</button>
+              </div>
+            </div>
+          `;
+        }
+        
+        if (hasImage) {
+          previewContent = `
+            <div class="image-preview">
+              <div class="image-placeholder">🖼️</div>
+              <div class="image-label">Screenshots</div>
+            </div>
+          `;
+        } else {
+          previewContent = `
+            <div class="code-lines">
+              <div class="line" style="background: ${color}40;"></div>
+              <div class="line" style="background: ${color}30; width: 80%;"></div>
+              <div class="line" style="background: ${color}20; width: 60%;"></div>
+            </div>
+          `;
+        }
+        
+        card.innerHTML = `
+          <div class="project-header">
+            <h3>${repo.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h3>
+            <div class="language-badge" style="background: ${color}; color: white;">${mainLanguage}</div>
+          </div>
+          <div class="project-preview" style="background: linear-gradient(135deg, ${color}20, ${color}10); border-left: 4px solid ${color};">
+            <div class="preview-content">
+              ${previewContent}
+            </div>
+          </div>
+          <div class="project-content">
+            <p>${repo.description}</p>
+            <div class="project-languages">
+              ${languageList.map(lang => `
+                <span class="language-tag" style="background: ${languageColors[lang] || '#6B7280'}20; color: ${languageColors[lang] || '#6B7280'}; border: 1px solid ${languageColors[lang] || '#6B7280'}40;">
+                  ${lang}
+                </span>
+              `).join('')}
+            </div>
+            <div class="card-actions">
+              <a class="btn small" href="${repo.html_url}" target="_blank" rel="noopener">Ver código</a>
+              ${repo.homepage ? `<a class="btn small outline" href="${repo.homepage}" target="_blank" rel="noopener">Demo</a>` : ''}
+            </div>
+          </div>
+        `;
+        projectsContainer.appendChild(card);
+      }
+      
+      // Adicionar event listeners para mini reprodutores
+      projectsContainer.querySelectorAll('.mini-player').forEach(miniPlayer => {
+        const video = miniPlayer.querySelector('.mini-video');
+        const playBtn = miniPlayer.querySelector('.play-pause-btn');
+        const progressBar = miniPlayer.querySelector('.progress-bar');
+        const durationSpan = miniPlayer.querySelector('.video-duration');
+        
+        // Play/Pause
+        playBtn.addEventListener('click', () => {
+          if (video.paused) {
+            video.play();
+            playBtn.textContent = '⏸️';
+          } else {
+            video.pause();
+            playBtn.textContent = '▶️';
+          }
+        });
+        
+        // Atualizar progresso
+        video.addEventListener('timeupdate', () => {
+          const progress = (video.currentTime / video.duration) * 100;
+          progressBar.style.width = `${progress}%`;
+        });
+        
+        // Atualizar duração
+        video.addEventListener('loadedmetadata', () => {
+          const minutes = Math.floor(video.duration / 60);
+          const seconds = Math.floor(video.duration % 60);
+          durationSpan.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        });
+        
+        // Click no vídeo para abrir modal
+        video.addEventListener('click', () => {
+          const videoPath = playBtn.dataset.video;
+          openVideoModal(videoPath);
+        });
+      });
+      
+      // Event listeners para botões de teste
+      projectsContainer.querySelectorAll('.test-video-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const repoName = btn.dataset.repo;
+          const possiblePaths = [
+            `Projetos/${repoName}/video.mp4`,
+            `Projetos/${repoName}/demo.mp4`,
+            `Projetos/${repoName}/preview.mp4`,
+            `videos/${repoName}.mp4`
+          ];
+          
+          btn.textContent = 'Testando...';
+          for (const path of possiblePaths) {
+            if (await checkVideoExists(path)) {
+              btn.textContent = `✅ Encontrado: ${path}`;
+              // Recarregar a página para mostrar o vídeo
+              setTimeout(() => location.reload(), 1000);
+              return;
+            }
+          }
+          btn.textContent = '❌ Não encontrado';
+        });
+      });
+      
+      // Atualizar controles de paginação
+      updatePaginationControls();
+    }
+    
+    function updatePaginationControls(){
+      const totalPages = Math.ceil(allRepos.length / projectsPerPage);
+      const prevBtn = document.getElementById('prev-page');
+      const nextBtn = document.getElementById('next-page');
+      const pageInfo = document.getElementById('page-info');
+      
+      if (prevBtn) prevBtn.disabled = currentPage === 0;
+      if (nextBtn) nextBtn.disabled = currentPage >= totalPages - 1;
+      if (pageInfo) pageInfo.textContent = `Página ${currentPage + 1} de ${totalPages}`;
+    }
+    
+    // Carregar projetos após 1 segundo
+    setTimeout(loadGitHubProjects, 1000);
+  }catch{}
 })();
 
 
