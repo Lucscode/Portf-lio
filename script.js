@@ -350,74 +350,10 @@
         const mainLanguage = languageList[0] || 'Mixed';
         const color = languageColors[mainLanguage] || '#6B7280';
         
-        // Verificar se há vídeo na pasta Projetos/ (buscar automaticamente)
-        const possiblePaths = [
-          `Projetos/${repo.name}/video.mp4`,
-          `Projetos/${repo.name}/demo.mp4`,
-          `Projetos/${repo.name}/preview.mp4`,
-          `Projetos/${repo.name}/Representativo web.mp4`,
-          `Projetos/${repo.name}/manager app.mp4`,
-          `Projetos/${repo.name}/Gravando 2025-09-15 103148.mp4`,
-          `videos/${repo.name}.mp4`
-        ];
-        
-        let videoPath = null;
-        let hasVideo = false;
-        
-        // Buscar automaticamente qualquer .mp4 na pasta do projeto
-        try {
-          const response = await fetch(`Projetos/${repo.name}/`);
-          if (response.ok) {
-            const html = await response.text();
-            const mp4Match = html.match(/href="([^"]*\.mp4)"/);
-            if (mp4Match) {
-              videoPath = `Projetos/${repo.name}/${mp4Match[1]}`;
-              hasVideo = true;
-            }
-          }
-        } catch (e) {
-          // Fallback para busca manual
-          for (const path of possiblePaths) {
-            if (await checkVideoExists(path)) {
-              videoPath = path;
-              hasVideo = true;
-              break;
-            }
-          }
-        }
-        
+        // Gerar preview simples baseado no tipo de conteúdo
         const hasImage = repo.name.toLowerCase().includes('image') || repo.description.toLowerCase().includes('screenshot');
         
-        // Gerar preview baseado no tipo de conteúdo
         let previewContent = '';
-        if (hasVideo) {
-          previewContent = `
-            <div class="mini-player">
-              <video class="mini-video" muted preload="metadata" loop>
-                <source src="${videoPath}" type="video/mp4">
-              </video>
-              <div class="mini-controls">
-                <button class="play-pause-btn" data-video="${videoPath}">▶️</button>
-                <div class="video-progress">
-                  <div class="progress-bar"></div>
-                </div>
-                <span class="video-duration">0:00</span>
-              </div>
-            </div>
-          `;
-        } else {
-          // Fallback: mostrar botão para testar vídeo
-          previewContent = `
-            <div class="video-fallback">
-              <div class="fallback-content">
-                <div class="video-icon">🎥</div>
-                <div class="fallback-text">Vídeo não encontrado</div>
-                <button class="test-video-btn" data-repo="${repo.name}">Testar vídeo</button>
-              </div>
-            </div>
-          `;
-        }
-        
         if (hasImage) {
           previewContent = `
             <div class="image-preview">
@@ -426,11 +362,30 @@
             </div>
           `;
         } else {
+          // Preview com código simulado
+          const codeLines = [
+            'function init() {',
+            '  const app = new App();',
+            '  app.start();',
+            '}',
+            '',
+            '// Inicializar aplicação',
+            'init();'
+          ];
+          
           previewContent = `
-            <div class="code-lines">
-              <div class="line" style="background: ${color}40;"></div>
-              <div class="line" style="background: ${color}30; width: 80%;"></div>
-              <div class="line" style="background: ${color}20; width: 60%;"></div>
+            <div class="code-preview">
+              <div class="code-header">
+                <div class="code-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <span class="code-filename">${mainLanguage.toLowerCase()}</span>
+              </div>
+              <div class="code-content">
+                ${codeLines.map(line => 
+                  line ? `<div class="code-line">${line}</div>` : '<div class="code-line empty"></div>'
+                ).join('')}
+              </div>
             </div>
           `;
         }
