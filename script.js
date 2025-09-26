@@ -159,7 +159,16 @@
       'SQLite': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0F80CC"/><path d="M7 7h10v10H7z" fill="#fff"/><path d="M9 9h6v6H9z" fill="#0F80CC"/></svg>`,
       'MySQL': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#00758F"/><path d="M6 16c1.5-3.5 5-6 9-6 1.3 0 2 .7 3 1.5-.5 2.2-2.5 4.5-5 5.5-2.5 1-5.5.8-7-.9Z" fill="#fff"/></svg>`,
       'Supabase': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h12l-6 8h6L8 20l2.8-6H6L12 4Z" fill="#3ECF8E"/></svg>`,
-      'PowerBI (noções)': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F2C811"/><path d="M6 6h12v12H6z" fill="#fff"/><path d="M8 8h8v8H8z" fill="#F2C811"/><path d="M10 10h4v4h-4z" fill="#fff"/></svg>`,
+      'PowerBI': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F2C811"/><path d="M6 6h12v12H6z" fill="#fff"/><path d="M8 8h8v8H8z" fill="#F2C811"/><path d="M10 10h4v4h-4z" fill="#fff"/></svg>`,
+      'n8n': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#ff6b35"/><path d="M8 6h8v2H8V6zm0 3h8v2H8V9zm0 3h6v2H8v-2z" fill="#fff"/></svg>`,
+      'Google Apps Script': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#4285F4"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>`,
+      'Integrações API': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#4CAF50"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#fff"/></svg>`,
+      'Workflows Automatizados': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#9C27B0"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>`,
+      'Geração de Prompts': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#FF9800"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#fff"/></svg>`,
+      'IA Generativa': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#E91E63"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>`,
+      'OpenAI API': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#10A37F"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#fff"/></svg>`,
+      'BI Dashboards': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#2196F3"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" fill="#fff"/></svg>`,
+      'Firebase': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#FFCA28"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>`,
       'ChatGPT': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#10A37F"/><path d="M8 9.5c0-1.4 1.1-2.5 2.5-2.5.6 0 1.1.2 1.5.5.4-.3.9-.5 1.5-.5C14.9 7 16 8.1 16 9.5c0 .3 0 .6-.1.8.7.4 1.1 1.1 1.1 1.9 0 1.2-1 2.1-2.1 2.1-.2 0-.5 0-.7-.1-.4.6-1.1 1-1.8 1-.8 0-1.5-.4-1.9-1-.2.1-.5.1-.7.1C8.1 14.3 7 13.2 7 11.8c0-.8.4-1.5 1.1-1.9-.1-.2-.1-.4-.1-.6Z" fill="#fff"/></svg>`,
       'Gemini': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285F4"/><stop offset="1" stop-color="#9C27B0"/></linearGradient></defs><circle cx="12" cy="12" r="10" fill="url(#g)"/></svg>`,
       'Lovable': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-6-3.8-8.2-6C1.7 11.9 2 8.6 4.3 7.2 6 6 8.1 6.6 9.3 8c.4.5.7 1 .7 1s.3-.5.7-1c1.2-1.4 3.3-2 5-0.8 2.3 1.4 2.6 4.7.5 6.8C18 16.2 12 20 12 20Z" fill="#FF5A79"/></svg>`,
@@ -308,34 +317,28 @@
       
       // Se for a primeira página, mostrar projetos fixos
       if (page === 0) {
-        // Restaurar projetos fixos do HTML
+        // Restaurar projetos de automação do HTML
         projectsContainer.innerHTML = `
           <article class="project-card">
-            <h3>Controlerf — App de controle financeiro</h3>
-            <p>Stack: React + TypeScript + Tailwind</p>
+            <h3>IA de Apoio ao Atendimento</h3>
+            <p>Geração de prompts otimizados para respostas automáticas em chatbots</p>
+            <div class="project-languages">
+              <span class="language-tag" style="background: #4285F4; color: white;">Gemini API</span>
+              <span class="language-tag" style="background: #ff6b35; color: white;">n8n</span>
+            </div>
             <div class="card-actions">
-              <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
+              <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver projeto</a>
             </div>
           </article>
           <article class="project-card">
-            <h3>SaaS Médico — Agendamento de consultas</h3>
-            <p>Stack: Next.js + TypeScript + Tailwind</p>
-            <div class="card-actions">
-              <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
+            <h3>Dashboard de BI Inteligente</h3>
+            <p>Análise de dados e suporte à tomada de decisões</p>
+            <div class="project-languages">
+              <span class="language-tag" style="background: #F2C811; color: black;">PowerBI</span>
+              <span class="language-tag" style="background: #4285F4; color: white;">Google Apps Script</span>
             </div>
-          </article>
-          <article class="project-card">
-            <h3>ManagerApp — Gestão para lava-rápido</h3>
-            <p>Stack: React + Node.js + SQLite</p>
             <div class="card-actions">
-              <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <h3>ArcusIT — Plataforma de atendimento</h3>
-            <p>Stack: HTML + CSS + JavaScript</p>
-            <div class="card-actions">
-              <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver repositório</a>
+              <a class="btn small" href="https://github.com/Lucscode" target="_blank" rel="noopener">Ver projeto</a>
             </div>
           </article>
         `;
