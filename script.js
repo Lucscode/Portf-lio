@@ -164,9 +164,10 @@
       'Google Apps Script': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#4285F4"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>`,
       'Integrações API': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#4CAF50"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#fff"/></svg>`,
       'Workflows Automatizados': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#9C27B0"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>`,
-      'Geração de Prompts': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#FF9800"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#fff"/></svg>`,
+      'Engenharia de Prompts': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#FF9800"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#fff"/></svg>`,
       'IA Generativa': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#E91E63"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>`,
       'OpenAI API': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#10A37F"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#fff"/></svg>`,
+      'Gemini API': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gemini-api-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285F4"/><stop offset="1" stop-color="#9C27B0"/></linearGradient></defs><rect width="24" height="24" rx="4" fill="url(#gemini-api-grad)"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#fff"/></svg>`,
       'BI Dashboards': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#2196F3"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" fill="#fff"/></svg>`,
       'Firebase': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#FFCA28"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>`,
       'ChatGPT': `<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#10A37F"/><path d="M8 9.5c0-1.4 1.1-2.5 2.5-2.5.6 0 1.1.2 1.5.5.4-.3.9-.5 1.5-.5C14.9 7 16 8.1 16 9.5c0 .3 0 .6-.1.8.7.4 1.1 1.1 1.1 1.9 0 1.2-1 2.1-2.1 2.1-.2 0-.5 0-.7-.1-.4.6-1.1 1-1.8 1-.8 0-1.5-.4-1.9-1-.2.1-.5.1-.7.1C8.1 14.3 7 13.2 7 11.8c0-.8.4-1.5 1.1-1.9-.1-.2-.1-.4-.1-.6Z" fill="#fff"/></svg>`,
@@ -540,6 +541,306 @@
     // Carregar projetos após 1 segundo
     setTimeout(loadGitHubProjects, 1000);
   }catch{}
+})();
+
+// Funcionalidade do Carrossel para Landing Pages
+(function() {
+  'use strict';
+  
+  class Carousel {
+    constructor(element) {
+      this.carousel = element;
+      this.track = element.querySelector('.carousel-track');
+      this.prevBtn = element.querySelector('.prev');
+      this.nextBtn = element.querySelector('.next');
+      this.indicators = element.querySelector('.carousel-indicators');
+      this.currentSlide = 0;
+      this.slides = [];
+      this.projectType = element.dataset.carousel;
+      
+      this.init();
+    }
+    
+    async init() {
+      await this.loadImages();
+      if (this.slides.length > 0) {
+        this.setupEventListeners();
+        this.updateCarousel();
+      }
+    }
+    
+    async loadImages() {
+      const maxPages = 12;
+      const projectNames = {
+        'ecommerce': 'E-commerce',
+        'portfolio': 'Portfólio',
+        'app': 'App Landing Page'
+      };
+      
+      const captions = {
+        'ecommerce': ['Página Principal', 'Catálogo de Produtos', 'Processo de Checkout', 'Página do Produto', 'Carrinho de Compras', 'Perfil do Usuário', 'Dashboard Admin', 'Relatórios', 'Configurações', 'Suporte', 'FAQ', 'Sobre'],
+        'portfolio': ['Página Inicial', 'Página de Serviços', 'Página de Contato', 'Sobre Mim', 'Projetos', 'Experiência', 'Habilidades', 'Depoimentos', 'Blog', 'Galeria', 'Certificações', 'Currículo'],
+        'app': ['Tela Inicial', 'Login/Cadastro', 'Dashboard', 'Perfil do Usuário', 'Configurações', 'Notificações', 'Relatórios', 'Busca', 'Favoritos', 'Histórico', 'Ajuda', 'Sobre o App']
+      };
+
+      for (let i = 1; i <= maxPages; i++) {
+        // Tenta primeiro .jpg, depois .svg, depois .png
+        const extensions = ['jpg', 'svg', 'png'];
+        let imageFound = false;
+        
+        for (const ext of extensions) {
+          const imagePath = `./images/${this.projectType}/page${i}.${ext}`;
+          
+          try {
+            // Verifica se a imagem existe tentando carregá-la
+            await this.imageExists(imagePath);
+            
+            // Cria o slide
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            
+            const img = document.createElement('img');
+            img.src = imagePath;
+            img.alt = `${projectNames[this.projectType]} - Página ${i}`;
+            img.loading = 'lazy';
+            
+            // Cria o container da imagem com lupa
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container';
+            
+            // Cria o ícone de lupa
+            const zoomIcon = document.createElement('div');
+            zoomIcon.className = 'zoom-icon';
+            zoomIcon.innerHTML = '🔍';
+            zoomIcon.setAttribute('aria-label', 'Ampliar imagem');
+            zoomIcon.dataset.imageSrc = imagePath;
+            zoomIcon.dataset.imageAlt = img.alt;
+            
+            imageContainer.appendChild(img);
+            imageContainer.appendChild(zoomIcon);
+            slide.appendChild(imageContainer);
+            this.track.appendChild(slide);
+            this.slides.push(slide);
+            
+            // Cria o indicador
+            const indicator = document.createElement('button');
+            indicator.className = i === 1 ? 'indicator active' : 'indicator';
+            indicator.dataset.slide = i - 1;
+            indicator.setAttribute('aria-label', `Ir para slide ${i}`);
+            this.indicators.appendChild(indicator);
+            
+            imageFound = true;
+            break; // Sai do loop de extensões se encontrou a imagem
+            
+          } catch (error) {
+            // Continua tentando a próxima extensão
+            continue;
+          }
+        }
+        
+        if (!imageFound) {
+          // Nenhuma imagem encontrada com qualquer extensão, para de tentar
+          break;
+        }
+      }
+    }
+    
+    imageExists(src) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => reject(false);
+        img.src = src;
+      });
+    }
+    
+    setupEventListeners() {
+      // Event listeners para botões
+      this.prevBtn?.addEventListener('click', () => this.prevSlide());
+      this.nextBtn?.addEventListener('click', () => this.nextSlide());
+      
+      // Event listeners para indicadores
+      this.indicators?.addEventListener('click', (e) => {
+        if (e.target.classList.contains('indicator')) {
+          const slideIndex = parseInt(e.target.dataset.slide);
+          this.goToSlide(slideIndex);
+        }
+      });
+      
+      // Suporte a teclado
+      this.carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') this.prevSlide();
+        if (e.key === 'ArrowRight') this.nextSlide();
+      });
+      
+      // Suporte a touch/swipe em dispositivos móveis
+      this.addTouchSupport();
+    }
+    
+    goToSlide(slideIndex) {
+      this.currentSlide = slideIndex;
+      this.updateCarousel();
+    }
+    
+    nextSlide() {
+      const nextIndex = (this.currentSlide + 1) % this.slides.length;
+      this.goToSlide(nextIndex);
+    }
+    
+    prevSlide() {
+      const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+      this.goToSlide(prevIndex);
+    }
+    
+    updateCarousel() {
+      // Atualiza indicadores
+      const indicators = this.indicators.querySelectorAll('.indicator');
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === this.currentSlide);
+      });
+
+      // Move o track
+      const translateX = -this.currentSlide * 100;
+      this.track.style.transform = `translateX(${translateX}%)`;
+    }
+    
+    addTouchSupport() {
+      let startX = 0;
+      let endX = 0;
+      
+      this.track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      });
+      
+      this.track.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        this.handleSwipe();
+      });
+      
+      const handleSwipe = () => {
+        const threshold = 50; // Mínimo de pixels para considerar um swipe
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > threshold) {
+          if (diff > 0) {
+            this.nextSlide(); // Swipe para esquerda = próximo slide
+          } else {
+            this.prevSlide(); // Swipe para direita = slide anterior
+          }
+        }
+      };
+      
+      this.handleSwipe = handleSwipe;
+    }
+  }
+  
+  // Inicializar todos os carrosséis quando o DOM estiver carregado
+  function initCarousels() {
+    const carousels = document.querySelectorAll('.carousel');
+    carousels.forEach(carousel => {
+      if (!carousel.hasAttribute('data-carousel-initialized')) {
+        carousel.setAttribute('data-carousel-initialized', 'true');
+        new Carousel(carousel);
+      }
+    });
+  }
+  
+  // Função para aguardar o DOM estar completamente carregado
+  function waitForDOM() {
+    return new Promise((resolve) => {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', resolve);
+      } else {
+        resolve();
+      }
+    });
+  }
+  
+  // Inicializar quando o DOM estiver pronto
+  waitForDOM().then(() => {
+    // Aguarda um pouco mais para garantir que todos os elementos estejam renderizados
+    setTimeout(() => {
+      initCarousels();
+    }, 100);
+  });
+  
+  // Re-inicializar carrosséis se novos elementos forem adicionados dinamicamente
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) { // Element node
+          const newCarousels = node.querySelectorAll?.('.carousel') || [];
+          newCarousels.forEach(carousel => {
+            if (!carousel.hasAttribute('data-carousel-initialized')) {
+              new Carousel(carousel);
+              carousel.setAttribute('data-carousel-initialized', 'true');
+            }
+          });
+        }
+      });
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+})();
+
+// Modal de imagem
+(function() {
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalClose = document.querySelector('.modal-close');
+
+  // Função para abrir o modal
+  function openModal(imageSrc, imageAlt) {
+    modalImage.src = imageSrc;
+    modalImage.alt = imageAlt;
+    modalTitle.textContent = imageAlt;
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // Previne scroll do body
+  }
+
+  // Função para fechar o modal
+  function closeModal() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = ''; // Restaura scroll do body
+    modalImage.src = '';
+    modalImage.alt = '';
+    modalTitle.textContent = '';
+  }
+
+  // Event listeners
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('zoom-icon')) {
+      e.preventDefault();
+      e.stopPropagation();
+      const imageSrc = e.target.dataset.imageSrc;
+      const imageAlt = e.target.dataset.imageAlt;
+      openModal(imageSrc, imageAlt);
+    }
+  });
+
+  // Fechar modal
+  modalClose.addEventListener('click', closeModal);
+  
+  // Fechar modal clicando no overlay
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal || e.target.classList.contains('modal-overlay')) {
+      closeModal();
+    }
+  });
+
+  // Fechar modal com ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+      closeModal();
+    }
+  });
 })();
 
 
