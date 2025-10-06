@@ -666,6 +666,8 @@ html{ scroll-behavior:smooth; }
 }
 
 @media (max-width: 560px) {
+  /* Ocultar navegação no mobile */
+  .site-nav { display: none; }
   /* Layout base */
   .section { padding: 48px 0; }
   .header-inner { padding: 10px 0; }
