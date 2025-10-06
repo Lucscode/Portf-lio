@@ -666,6 +666,18 @@ html{ scroll-behavior:smooth; }
 }
 
 @media (max-width: 560px) {
+  /* Layout base */
+  .section { padding: 48px 0; }
+  .header-inner { padding: 10px 0; }
+  .site-nav ul { gap: 10px; flex-wrap: wrap; }
+
+  /* Hero */
+  .hero { padding: 40px 0 16px; }
+  .hero h1 { font-size: 1.6rem; line-height: 1.3; }
+  .subtitle { max-width: 100%; }
+  .cta-group { flex-direction: column; align-items: stretch; gap: 10px; }
+  .cta-group .btn { width: 100%; }
+
   .skills-grid { 
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 12px;
@@ -779,6 +791,9 @@ html{ scroll-behavior:smooth; }
   .cta-ai p {
     font-size: 1rem;
   }
+
+  /* Footer */
+  .footer-inner { flex-direction: column; gap: 10px; text-align: center; }
 }
 /* Landing Pages Section */
 .landing-pages-grid {
