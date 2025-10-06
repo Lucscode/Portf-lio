@@ -669,7 +669,9 @@ html{ scroll-behavior:smooth; }
   /* Layout base */
   .section { padding: 48px 0; }
   .header-inner { padding: 10px 0; }
-  .site-nav ul { gap: 10px; flex-wrap: wrap; }
+  .site-nav ul { gap: 8px; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  .site-nav ul::-webkit-scrollbar { display: none; }
+  .site-nav a { padding: 8px 8px; font-size: .95rem; }
 
   /* Hero */
   .hero { padding: 40px 0 16px; }
