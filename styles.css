@@ -372,16 +372,6 @@ html{ scroll-behavior:smooth; }
   min-width: 200px;
 }
 
-.cta-guarantee {
-  font-size: 1rem;
-  color: var(--muted);
-  margin: 30px 0 0 0;
-  padding: 16px 24px;
-  background: color-mix(in srgb, var(--primary) 5%, var(--bg-elev));
-  border: 1px solid color-mix(in srgb, var(--primary) 20%, var(--border));
-  border-radius: 12px;
-  display: inline-block;
-}
 
 /* Seção Agentes de IA */
 .section-intro {
@@ -733,11 +723,6 @@ html{ scroll-behavior:smooth; }
     font-size: 1rem;
   }
   
-  .cta-guarantee {
-    font-size: 0.9rem;
-    padding: 12px 16px;
-    margin-top: 20px;
-  }
   
   /* Agentes de IA - Mobile */
   .ai-agents-grid {
