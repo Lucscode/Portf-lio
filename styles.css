@@ -663,6 +663,8 @@ html{ scroll-behavior:smooth; }
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 16px;
   }
+  /* Ocultar navegação também até 900px para cobrir mais dispositivos */
+  .site-nav{ display:none; }
 }
 
 @media (max-width: 560px) {
