@@ -8,7 +8,7 @@ Indaiatuba, SP, Brazil
 ---
 
 ## Resumo Profissional
-Especialista em automação de processos e integrações low-code/no-code, com foco em soluções práticas e escaláveis utilizando n8n, Google Apps Script e ferramentas de inteligência artificial. Busco criar soluções que otimizem operações empresariais, reduzam custos e aumentem a eficiência através de automação e IA.
+Profissional de TI em automação de processos e integrações low-code/no-code, com foco em soluções práticas e escaláveis utilizando n8n, Google Apps Script e ferramentas de inteligência artificial. Busco oportunidades para aplicar automação e IA na melhoria de processos, qualidade de dados e eficiência operacional.
 
 ---
 
@@ -64,5 +64,4 @@ Especialista em automação de processos e integrações low-code/no-code, com f
 ---
 
 ## Contato
-Aberto a oportunidades e parcerias. Vamos conversar!</content>
-<parameter name="filePath">c:\Users\Lucas\Desktop\rh-copilot\Portf-lio\resume.md
+Aberto a oportunidades em TI, automacao e IA. Vamos conversar!
